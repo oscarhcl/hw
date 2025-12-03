@@ -1,4 +1,3 @@
-// Local data to be stored in localStorage (different from remote data)
 const localProjectsData = [
     {
         id: 1,
@@ -24,23 +23,21 @@ const localProjectsData = [
     }
 ];
 
-// Initialize localStorage with local data if not already set
 function initializeLocalStorage() {
     if (!localStorage.getItem('projects')) {
         localStorage.setItem('projects', JSON.stringify(localProjectsData));
     }
 }
 
-// Render project cards from data array
 function renderProjectCards(projects) {
     const container = document.getElementById('cards-container');
-    container.innerHTML = ''; // Clear existing cards
+    container.innerHTML = '';
 
     projects.forEach(project => {
         const card = document.createElement('project-card');
         card.setAttribute('title', project.title);
         card.setAttribute('image', project.image);
-        card.setAttribute('image-alt', project.imageAlt || project.imageAlt || 'Project image');
+        card.setAttribute('image-alt', project.imageAlt || 'Project image');
         card.setAttribute('description', project.description);
 
         if (project.technologies) {
@@ -60,32 +57,24 @@ function renderProjectCards(projects) {
     });
 }
 
-// Load projects from localStorage
 function loadLocalProjects() {
     try {
         const data = localStorage.getItem('projects');
         if (data) {
             const projects = JSON.parse(data);
             renderProjectCards(projects);
-            console.log('Loaded projects from localStorage:', projects);
         } else {
-            console.log('No projects found in localStorage');
             alert('No local data found. Initializing with default data...');
             initializeLocalStorage();
             loadLocalProjects();
         }
     } catch (error) {
-        console.error('Error loading from localStorage:', error);
         alert('Error loading local data: ' + error.message);
     }
 }
 
-// Load projects from remote server (My JSON Server)
-// Replace YOUR_GITHUB_USERNAME with your actual GitHub username after pushing db.json
 async function loadRemoteProjects() {
-    // Using My JSON Server - it uses your GitHub repo as a fake REST API
-    // Format: https://my-json-server.typicode.com/{github-username}/{repo-name}/projects
-    const remoteUrl = 'https://my-json-server.typicode.com/oscarhhung/cse134-hw5/projects';
+    const remoteUrl = 'https://my-json-server.typicode.com/oscarhcl/cse134-hw5/projects';
 
     try {
         const response = await fetch(remoteUrl);
@@ -96,7 +85,6 @@ async function loadRemoteProjects() {
 
         const projects = await response.json();
 
-        // Map the remote data format to match our card attributes
         const mappedProjects = projects.map(project => ({
             title: project.title,
             image: project.image,
@@ -109,19 +97,14 @@ async function loadRemoteProjects() {
         }));
 
         renderProjectCards(mappedProjects);
-        console.log('Loaded projects from remote:', mappedProjects);
     } catch (error) {
-        console.error('Error loading from remote:', error);
-        alert('Error loading remote data: ' + error.message + '\n\nMake sure your GitHub repo has db.json in the root directory.');
+        alert('Error loading remote data: ' + error.message);
     }
 }
 
-// Event delegation for button clicks
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize localStorage
     initializeLocalStorage();
 
-    // Add event listeners using event delegation on button container
     const buttonContainer = document.querySelector('.button-container');
 
     if (buttonContainer) {

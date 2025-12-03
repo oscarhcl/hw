@@ -201,7 +201,6 @@ class ProjectCard extends HTMLElement {
                     transform: translateX(3px);
                 }
 
-                /* Responsive styles */
                 @media (max-width: 480px) {
                     .card-content {
                         padding: var(--card-spacing-sm);
