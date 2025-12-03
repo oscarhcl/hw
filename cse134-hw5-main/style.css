@@ -903,6 +903,34 @@ figure img {
     }
 }
 
+/* Project Cards Grid Layout */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg, var(--spacing-lg-fallback));
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md, var(--spacing-md-fallback));
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: var(--spacing-xl, var(--spacing-xl-fallback));
+    }
+}
+
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;

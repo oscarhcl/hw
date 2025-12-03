@@ -27,76 +27,45 @@
         <h1>Projects</h1>
     </header>
     <main>
-        <section>
-            <h2>Leaseflow AI - LLM-powered Rental Search Platform</h2>
-            <h3>React,NodeJS,Express,MongoDB,LangChain</h3>
-            <p>
-                ● Built and deployed a full-stack rental search platform with an LLM-powered chat assistant, designing and
-    containerizing 7 REST APIs (Python, Express) for listing retrieval, chat logic, and query filtering;
-    integrated MongoDB Atlas vector search to reduce semantic query latency by 135%, achieved 95% backend
-    test coverage, and cut deployment time by 50% with Docker.
-            </p>
-        </section>
-        <section>
-            <h2>On-campus Pickup Basketball Virtual Queuing IOS app</h2>
-            <h3>React Native,Supabase,Expo,Apple ID Auth</h3>
-            <p>
-                ● Built a React Native iOS app for UCSD students to manage pickup basketball through virtual queues, live
-                game tracking, and player profiles; implemented Apple ID login and real-time Supabase sync, achieving
-                less than 200ms update latency and 99.9% uptime across 8 modules.
-            </p>
-            <figure>
-                <picture>
-                    <source media="(max-width: 480px)" srcset="pickup1.png" type="image/png">
-                    <img src="pickup1.png" 
-                         alt="Pickup Basketball app screenshot showing virtual queue interface"
-                         width="600" 
-                         height="400"
-                         loading="lazy">
-                </picture>
-                <picture>
-                    <source media="(max-width: 480px)" srcset="pickup2.png" type="image/png">
-                    <img src="pickup2.png" 
-                         alt="Pickup Basketball app screenshot showing live game tracking features"
-                         width="600" 
-                         height="400"
-                         loading="lazy">
-                </picture>
-            </figure>
-            <button type="button">
-                View Source Code
-            </button>
-        </section>
-        <section>
-            <h2>Immersion Coffee's Website Revamped</h2>
-            <h3>React,HTML5,CSS3,TypeScript,Node.js,Figma,Git</h3>
-            <p>
-                ● Redesigned the frontend for a San Diego coffee shop's website using React; improved page load speed by
-                40% and visual consistency across 10+ components through Git and Figma-driven collaboration.
-            </p>
-            <figure>
-                <picture>
-                    <source media="(max-width: 480px)" srcset="immersion1.png" type="image/png">
-                    <img src="immersion1.png" 
-                         alt="Immersion Coffee website homepage showing modern design"
-                         width="800" 
-                         height="600"
-                         loading="lazy">
-                </picture>
-                <picture>
-                    <source media="(max-width: 480px)" srcset="immersion2.png" type="image/png">
-                    <img src="immersion2.png" 
-                         alt="Immersion Coffee website interior design and menu section"
-                         width="800" 
-                         height="600"
-                         loading="lazy">
-                </picture>
-            </figure>
-        </section>
+        <div class="cards-container">
+            <project-card
+                title="Leaseflow AI - LLM-powered Rental Search Platform"
+                image="pickup1.png"
+                image-alt="Leaseflow AI platform interface showing rental search with AI chat assistant"
+                description="Built and deployed a full-stack rental search platform with an LLM-powered chat assistant, designing and containerizing 7 REST APIs (Python, Express) for listing retrieval, chat logic, and query filtering. Integrated MongoDB Atlas vector search to reduce semantic query latency by 135%, achieved 95% backend test coverage, and cut deployment time by 50% with Docker."
+                technologies="React, Node.js, Express, MongoDB, LangChain, Docker"
+                date="2024"
+                link="https://github.com"
+                link-text="View Project">
+            </project-card>
+
+            <project-card
+                title="On-campus Pickup Basketball Virtual Queuing iOS App"
+                image="pickup2.png"
+                image-alt="Pickup Basketball app screenshot showing virtual queue interface and live game tracking"
+                description="Built a React Native iOS app for UCSD students to manage pickup basketball through virtual queues, live game tracking, and player profiles. Implemented Apple ID login and real-time Supabase sync, achieving less than 200ms update latency and 99.9% uptime across 8 modules."
+                technologies="React Native, Supabase, Expo, Apple ID Auth"
+                date="2024"
+                link="https://github.com"
+                link-text="View Source Code">
+            </project-card>
+
+            <project-card
+                title="Immersion Coffee's Website Revamped"
+                image="immersion1.png"
+                image-alt="Immersion Coffee website homepage showing modern responsive design"
+                description="Redesigned the frontend for a San Diego coffee shop's website using React. Improved page load speed by 40% and visual consistency across 10+ components through Git and Figma-driven collaboration."
+                technologies="React, HTML5, CSS3, TypeScript, Node.js, Figma"
+                date="2023"
+                link="https://github.com"
+                link-text="View Website">
+            </project-card>
+        </div>
     </main>
     <footer>
         <p>Copyright 2025 Oscar Hung Portfolio</p>
     </footer>
+    <script src="project-card.js"></script>
     <script src="theme.js"></script>
 </body>
 </html>
