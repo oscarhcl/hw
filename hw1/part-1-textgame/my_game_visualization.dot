@@ -1,0 +1,10 @@
+digraph G {
+node [color="lightblue2", style="filled"];
+"Lobby" [label=<<b>Lobby</b><br />You are standing in the lobby of Giesel Library.<br />You see: a haunted elevatora heavy trapdoor<br/><i>unlock trapdoor</i>a key <br />Characters: The player>];
+"8/F Quiet Study Area" [label=<<b>8/F Quiet Study Area</b><br />You are on the 8th floor quiet study area.<br />You see: a sharp sword <br />>];
+"Chamber of Secrets" [label=<<b>Chamber of Secrets</b><br />You are in a hidden chamber beneath the lobby. You see a Triton snake slithering in the shadows.<br /> <br />Characters: Snake>];
+"Lobby" -> "8/F Quiet Study Area" [label="Up"];
+"Lobby" -> "Chamber of Secrets" [label="Down\nThe trapdoor is locked.", style="dotted"];
+"8/F Quiet Study Area" -> "Lobby" [label="Down"];
+"Chamber of Secrets" -> "Lobby" [label="Up"];
+}
